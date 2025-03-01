@@ -119,7 +119,7 @@ class _HomeScreenState extends State<HomeScreen>
                 Container(
                   color: Colors.yellow,
                 ),
-                ReportsPage(),
+                ReportsScreen(),
                 Container(
                   color: Colors.blue,
                 ),

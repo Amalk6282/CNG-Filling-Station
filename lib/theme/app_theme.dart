@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 
-const Color backgroundColor = Color.fromARGB(255, 255, 255, 255);
+const Color backgroundColor = Color(0xFFE7EEE7);
 const Color titleColor = Color(0xFF353535);
 const Color textColor = Color(0xFF353535);
 const Color mutedIconColor = Color(0xFFA1A1A1);
 const Color mutedTextColor = Color(0xFF919191);
 const Color inputBackgroundColor = Color(0xFFF1F1F1);
-const Color cardBackgroundColor = Color(0xFFF0F0F0);
+const Color cardBackgroundColor = Color.fromRGBO(255, 255, 255, 1);
 const Color cardBorderColor = Color(0xFFD8D8D8);
 const Color cardFocusBorderColor = Color.fromARGB(255, 203, 203, 203);
 const Color iconColor = Color(0xFF515866);
 // Primary color (Blue): Used for key interactive elements like buttons, links, and selected states
-const Color primaryColor = Color(0xFF081226);
+const Color primaryColor = Color(0xFF00A36C);
 const Color secondaryColor = Color(0xFFF1F3F4);
 
 // Tertiary color (Gray): Used for less important UI elements like disabled states or subtle details
@@ -40,11 +40,10 @@ const onErrorColor =
 
 const Color outlineColor = Color(0xFFD7DEE0); //border color
 const Color onSecondaryContainer = Color(0xFF000000); //text color
-const Color shadowColor = Color.fromARGB(112, 0, 0, 0);
+const Color shadowColor = Color.fromARGB(15, 0, 0, 0);
 const Color dividerColor = Color(0xFFE6E6E6);
 
 ThemeData appTheme = ThemeData(
-  shadowColor: shadowColor,
   useMaterial3: true,
   brightness: Brightness.light,
   scaffoldBackgroundColor: backgroundColor,
@@ -100,46 +99,10 @@ ThemeData appTheme = ThemeData(
     prefixIconColor: iconColor,
     floatingLabelBehavior: FloatingLabelBehavior.auto,
     contentPadding: const EdgeInsets.symmetric(
-      horizontal: 18,
-      vertical: 15,
+      horizontal: 15,
+      vertical: 10,
     ),
     fillColor: cardBackgroundColor,
     filled: true,
-    border: OutlineInputBorder(
-      borderRadius: BorderRadius.circular(32),
-      borderSide: const BorderSide(
-        color: cardBorderColor,
-      ),
-    ),
-    enabledBorder: OutlineInputBorder(
-      borderRadius: BorderRadius.circular(32),
-      borderSide: const BorderSide(
-        color: cardBorderColor,
-      ),
-    ),
-    focusedBorder: OutlineInputBorder(
-      borderRadius: BorderRadius.circular(32),
-      borderSide: const BorderSide(
-        color: cardFocusBorderColor,
-      ),
-    ),
-    focusedErrorBorder: OutlineInputBorder(
-      borderRadius: BorderRadius.circular(32),
-      borderSide: BorderSide(
-        color: Colors.red[700]!,
-      ),
-    ),
-    errorBorder: OutlineInputBorder(
-      borderRadius: BorderRadius.circular(32),
-      borderSide: const BorderSide(
-        color: cardBorderColor,
-      ),
-    ),
-    disabledBorder: OutlineInputBorder(
-      borderRadius: BorderRadius.circular(32),
-      borderSide: const BorderSide(
-        color: cardBorderColor,
-      ),
-    ),
   ),
 );

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class CustomButton extends StatelessWidget {
+class DrawerItemButton extends StatelessWidget {
   final Function() onTap;
   final bool inverse;
   final IconData iconData;
   final String label;
-  const CustomButton({
+  const DrawerItemButton({
     super.key,
     required this.onTap,
     this.inverse = true,

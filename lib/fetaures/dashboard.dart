@@ -57,13 +57,6 @@ class Dashboard extends StatelessWidget {
           SizedBox(
             height: 30,
           ),
-          Container(
-            foregroundDecoration:
-                BoxDecoration(border: Border.all(color: Color(0xFF00A36C))),
-            height: 320,
-            width: 1075,
-            color: Colors.white,
-          ),
         ],
       ),
     );

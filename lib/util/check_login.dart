@@ -1,6 +1,7 @@
-import 'package:cng_filling_station/login_page.dart';
 import 'package:flutter/material.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
+
+import '../fetaures/login/login_page.dart';
 
 void checkLogin(BuildContext context) {
   Future.delayed(

@@ -1,9 +1,14 @@
-import 'package:cng_filling_station/custombutton.dart';
 import 'package:cng_filling_station/profile_screen.dart';
-import 'package:cng_filling_station/screens/current_bookings.dart';
-import 'package:cng_filling_station/screens/dashboard.dart';
-import 'package:cng_filling_station/screens/report_page.dart';
+import 'package:cng_filling_station/fetaures/current_bookings.dart';
+import 'package:cng_filling_station/fetaures/dashboard.dart';
+import 'package:cng_filling_station/fetaures/report_page.dart';
 import 'package:flutter/material.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
+
+import 'common_widgets.dart/change_password.dart';
+import 'common_widgets.dart/custom_alert_dialog.dart';
+import 'custombutton.dart';
+import 'fetaures/login/login_page.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -42,7 +47,7 @@ class _HomeScreenState extends State<HomeScreen>
                   style: TextStyle(fontSize: 25, color: Color(0xFF00A36C)),
                 ),
                 SizedBox(height: 80.0),
-                CustomButton(
+                DrawerItemButton(
                   inverse: _tabController.index == 0,
                   iconData: Icons.dashboard,
                   label: 'Dashboard',
@@ -51,7 +56,7 @@ class _HomeScreenState extends State<HomeScreen>
                     setState(() {});
                   },
                 ),
-                CustomButton(
+                DrawerItemButton(
                   inverse: _tabController.index == 1,
                   iconData: Icons.book_online_outlined,
                   label: 'Current Bookings',
@@ -60,7 +65,7 @@ class _HomeScreenState extends State<HomeScreen>
                     setState(() {});
                   },
                 ),
-                CustomButton(
+                DrawerItemButton(
                   inverse: _tabController.index == 2,
                   iconData: Icons.battery_5_bar,
                   label: 'Cylinder Capacity',
@@ -69,7 +74,7 @@ class _HomeScreenState extends State<HomeScreen>
                     setState(() {});
                   },
                 ),
-                CustomButton(
+                DrawerItemButton(
                   inverse: _tabController.index == 3,
                   iconData: Icons.report_gmailerrorred_outlined,
                   label: 'Current Reports',
@@ -78,7 +83,7 @@ class _HomeScreenState extends State<HomeScreen>
                     setState(() {});
                   },
                 ),
-                CustomButton(
+                DrawerItemButton(
                   inverse: _tabController.index == 4,
                   iconData: Icons.money,
                   label: 'Current Prize',
@@ -87,7 +92,7 @@ class _HomeScreenState extends State<HomeScreen>
                     setState(() {});
                   },
                 ),
-                CustomButton(
+                DrawerItemButton(
                   inverse: _tabController.index == 5,
                   iconData: Icons.account_circle_outlined,
                   label: 'Profile',
@@ -97,9 +102,40 @@ class _HomeScreenState extends State<HomeScreen>
                   },
                 ),
                 Spacer(),
-                CustomButton(
+                DrawerItemButton(
                   inverse: false,
-                  onTap: () {},
+                  onTap: () {
+                    showDialog(
+                        context: context,
+                        builder: (comtext) => ChangePasswordDialog());
+                  },
+                  iconData: Icons.lock_outline_rounded,
+                  label: "Change Password",
+                ),
+                DrawerItemButton(
+                  inverse: false,
+                  onTap: () {
+                    showDialog(
+                      context: context,
+                      builder: (context) => CustomAlertDialog(
+                        title: "LOG OUT",
+                        content: const Text(
+                          "Are you sure you want to log out? Clicking 'Logout' will end your current session and require you to sign in again to access your account.",
+                        ),
+                        width: 400,
+                        primaryButton: "LOG OUT",
+                        onPrimaryPressed: () {
+                          Supabase.instance.client.auth.signOut();
+                          Navigator.pushAndRemoveUntil(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const LoginPage(),
+                              ),
+                              (route) => false);
+                        },
+                      ),
+                    );
+                  },
                   iconData: Icons.logout,
                   label: "Log out",
                 ),

@@ -51,13 +51,11 @@ class CustomTextFormField extends StatelessWidget {
             keyboardType: keyboardType,
             decoration: InputDecoration(
               contentPadding: contentPadding ??
-                  ((prefixIconData != null || suffixIconData != null)
-                      ? null
-                      : const EdgeInsets.symmetric(
-                          horizontal: 10,
-                          vertical: 15,
-                        )),
-              hintText: labelText,
+                  const EdgeInsets.symmetric(
+                    horizontal: 15,
+                    vertical: 10,
+                  ),
+              labelText: labelText,
               suffixIcon: suffixIconData != null
                   ? Icon(
                       suffixIconData,

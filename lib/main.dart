@@ -1,7 +1,15 @@
 import 'package:cng_filling_station/login_page.dart';
 import 'package:flutter/material.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  Supabase.initialize(
+    anonKey:
+        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imxkb2JlY2Zqc291bmhqbHVlbm5sIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzI4NTcwOTgsImV4cCI6MjA0ODQzMzA5OH0.C-MWKeEqL4EQaE74cgWDZH1awu37NZxKH0amMDgLV9c',
+    url: 'https://ldobecfjsounhjluennl.supabase.co',
+  );
+
   runApp(const MyApp());
 }
 

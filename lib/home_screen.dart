@@ -1,4 +1,6 @@
 import 'package:cng_filling_station/custombutton.dart';
+import 'package:cng_filling_station/profile_screen.dart';
+import 'package:cng_filling_station/screens/current_bookings.dart';
 import 'package:cng_filling_station/screens/dashboard.dart';
 import 'package:cng_filling_station/screens/report_page.dart';
 import 'package:flutter/material.dart';
@@ -85,6 +87,15 @@ class _HomeScreenState extends State<HomeScreen>
                     setState(() {});
                   },
                 ),
+                CustomButton(
+                  inverse: _tabController.index == 5,
+                  iconData: Icons.account_circle_outlined,
+                  label: 'Profile',
+                  onTap: () {
+                    _tabController.animateTo(5);
+                    setState(() {});
+                  },
+                ),
                 Spacer(),
                 CustomButton(
                   inverse: false,
@@ -104,19 +115,15 @@ class _HomeScreenState extends State<HomeScreen>
               controller: _tabController,
               children: [
                 Dashboard(),
-                Container(
-                  color: Colors.green,
-                ),
+                CurrentBookings(),
                 Container(
                   color: Colors.yellow,
                 ),
-                ReportsPage(),
+                ReportsScreen(),
                 Container(
                   color: Colors.blue,
                 ),
-                Container(
-                  color: Colors.orange,
-                ),
+                ProfileScreen()
               ],
             ),
           ),
